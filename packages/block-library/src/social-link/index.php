@@ -60,6 +60,9 @@ function render_block_core_social_link( $attributes, $content, $block ) {
 	$link .= '<a href="' . esc_url( $url ) . '" class="wp-block-social-link-anchor">';
 	$link .= $icon;
 	$link .= '<span class="wp-block-social-link-label' . ( $show_labels ? '' : ' screen-reader-text' ) . '">' . esc_html( $text ) . '</span>';
+	if ( $open_in_new_tab ) {
+		$link .= '<span class="screen-reader-text">' . __( '(opens in new tab)' ) . '</span>';
+	}
 	$link .= '</a></li>';
 
 	$processor = new WP_HTML_Tag_Processor( $link );
